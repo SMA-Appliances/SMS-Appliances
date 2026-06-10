@@ -391,6 +391,28 @@
       color: var(--ink);
     }
 
+    .faq-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.06rem;
+      line-height: 1.25;
+    }
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
     .contact {
       background: linear-gradient(135deg, var(--ink), #215566);
       color: #fff;
@@ -484,6 +506,9 @@
       .reviews {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+      .faq-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .section-heading {
         display: block;
       }
@@ -505,6 +530,7 @@
       .process,
       .stats,
       .reviews,
+      .faq-list,
       .two-col {
         grid-template-columns: 1fr;
       }
@@ -694,6 +720,57 @@
           <article class="review"><div class="stars">★★★★★</div><blockquote>Very fair pricing and excellent customer service. I will definitely use them again for future appliance repairs.</blockquote><cite>David L.</cite></article>
           <article class="review"><div class="stars">★★★★★</div><blockquote>They repaired our dishwasher quickly and saved us from having to buy a new one. Highly recommend!</blockquote><cite>Jennifer M.</cite></article>
           <article class="review"><div class="stars">★★★★★</div><blockquote>The technician arrived on time, diagnosed the issue immediately, and completed the repair efficiently.</blockquote><cite>Robert K.</cite></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="faq">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Helpful Answers Before You Book</h2>
+          <p>Practical details that can help you prepare for a repair visit and know what to expect.</p>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>How fast can a technician usually arrive?</h3>
+            <p>Availability depends on your location and schedule for the day, but SMS Appliances prioritizes urgent appliance problems and may offer same-day appointments when possible.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can you tell me if the repair is worth it before doing the work?</h3>
+            <p>Yes. The technician will inspect the appliance, explain the issue, and help you understand whether repair or replacement makes more sense.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Do I need to know the appliance model number before calling?</h3>
+            <p>It helps, but it is not required. If you have the brand and model number available, it can help the technician prepare faster.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What should I do before the technician arrives?</h3>
+            <p>Clear space around the appliance, remove items if possible, and make sure the appliance is accessible. For refrigerators or freezers, keep food stored safely if cooling has stopped.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can you work on built-in or high-end appliances?</h3>
+            <p>Yes, SMS Appliances can service many built-in and premium appliance types. Call with the brand and issue so the technician can confirm the best next step.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What if my appliance starts working again before the appointment?</h3>
+            <p>You can still have it checked, especially if the issue has happened more than once. Intermittent problems often come back and can become worse over time.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Do you carry parts on the truck?</h3>
+            <p>Technicians may carry common replacement parts, but some repairs require ordering the exact part for your appliance model.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Will the technician explain the problem to me?</h3>
+            <p>Yes. SMS Appliances focuses on honest diagnoses and clear explanations before moving forward with repair work.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Can I text photos or a video of the issue?</h3>
+            <p>Yes. Sending a photo, short video, or error code can help the technician understand the problem before arriving.</p>
+          </article>
+          <article class="faq-item">
+            <h3>What information should I include when requesting service?</h3>
+            <p>Include your name, phone number, city, appliance type, brand if known, and a short description of what the appliance is doing.</p>
+          </article>
         </div>
       </div>
     </section>
