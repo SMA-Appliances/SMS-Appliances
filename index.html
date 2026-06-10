@@ -720,7 +720,7 @@
         </div>
         <div class="contact-card">
           <h3>Request Service</h3>
-          <form action="mailto:khelmy77@yahoo.com" method="post" enctype="text/plain">
+          <form id="service-request-form">
             <div class="two-col">
               <label>Name
                 <input name="Name" autocomplete="name" required>
@@ -747,8 +747,8 @@
             <label>Description of the Problem
               <textarea name="Problem Description" placeholder="Tell us what is happening with the appliance." required></textarea>
             </label>
-            <button class="btn btn-primary" type="submit">Send Service Request</button>
-            <p class="form-note">Submitting opens your email app so you can send the request directly to SMS Appliances.</p>
+            <button class="btn btn-primary" type="submit">Text Service Request</button>
+            <p class="form-note">Submitting opens your texting app so you can send the request directly to SMS Appliances.</p>
           </form>
         </div>
       </div>
@@ -761,5 +761,27 @@
       <span><a href="tel:+12145182550">(214) 518-2550</a></span>
     </div>
   </footer>
+  <script>
+    const requestForm = document.querySelector("#service-request-form");
+
+    requestForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const data = new FormData(requestForm);
+      const body = [
+        "SMS Appliances Service Request",
+        "",
+        "Name: " + (data.get("Name") || ""),
+        "Phone: " + (data.get("Phone") || ""),
+        "Email: " + (data.get("Email") || ""),
+        "Appliance Type: " + (data.get("Appliance Type") || ""),
+        "",
+        "Problem Description:",
+        data.get("Problem Description") || ""
+      ].join("\n");
+
+      window.location.href = "sms:+12145182550?&body=" + encodeURIComponent(body);
+    });
+  </script>
 </body>
 </html>
