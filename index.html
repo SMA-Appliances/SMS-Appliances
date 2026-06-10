@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMS Appliances | Fast Appliance Repair Across DFW</title>
+  <meta name="description" content="SMS Appliances provides fast, affordable residential and commercial appliance repair across the Dallas-Fort Worth Metroplex. Same-day and emergency service available.">
+  <style>
+    :root {
+      --ink: #17313b;
+      --muted: #5c7078;
+      --brand: #117c75;
+      --brand-dark: #0c5e59;
+      --accent: #ef7c4a;
+      --gold: #f3bd3f;
+      --cool: #e9f7f5;
+      --warm: #fff4e7;
+      --paper: #ffffff;
+      --line: #d8e4e5;
+      --soft: #f7faf9;
+      --shadow: 0 18px 42px rgba(23, 49, 59, .14);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+
+    .topbar {
+      background: var(--ink);
+      color: #fff;
+      font-size: .94rem;
+    }
+    .topbar-inner,
+    .nav,
+    .section-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .topbar-inner {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 8px 0;
+    }
+    .topbar a { text-decoration: none; font-weight: 700; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0;
+    }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--brand), #38b8aa);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 20px rgba(17,124,117,.24);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+    .nav-links a { text-decoration: none; }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(239,124,74,.24);
+    }
+    .btn-secondary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-ghost {
+      background: #fff;
+      color: var(--brand-dark);
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(243,189,63,.24), transparent 28%),
+        linear-gradient(135deg, var(--cool), #fff 46%, var(--warm));
+      overflow: hidden;
+    }
+    .hero-inner {
+      width: min(1120px, calc(100% - 32px));
+      min-height: calc(100vh - 116px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, .92fr);
+      align-items: center;
+      gap: 38px;
+      padding: 54px 0 34px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand-dark);
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 900;
+      font-size: .84rem;
+    }
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2.45rem, 6vw, 5rem);
+      line-height: .96;
+      letter-spacing: 0;
+      max-width: 760px;
+    }
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+      margin: 0;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 26px 0;
+    }
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 680px;
+    }
+    .point {
+      background: rgba(255,255,255,.76);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      font-weight: 850;
+      color: var(--ink);
+    }
+    .hero-art {
+      position: relative;
+      align-self: stretch;
+      min-height: 470px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-art img {
+      width: min(620px, 100%);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 24px 36px rgba(23,49,59,.18));
+    }
+    .status-card {
+      position: absolute;
+      left: 0;
+      bottom: 36px;
+      width: min(285px, 72%);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .status-card strong {
+      display: block;
+      font-size: 1.1rem;
+    }
+    .status-card span {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    section { padding: 72px 0; }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+    .section-heading p {
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .band { background: var(--soft); }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .choose-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .service-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(23,49,59,.07);
+    }
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+    .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--cool);
+      color: var(--brand-dark);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 9px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    li {
+      display: flex;
+      gap: 9px;
+      align-items: baseline;
+    }
+    li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .stat {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 118px;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.65rem;
+      line-height: 1;
+      margin-bottom: 9px;
+    }
+    .stat span { color: #c9dadd; font-weight: 750; }
+
+    .process {
+      counter-reset: step;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .step {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+    .step h3 { margin: 0 0 8px; }
+    .step p { margin: 0; color: var(--muted); }
+
+    .brands,
+    .areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: #fff;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .reviews {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    .review {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .stars {
+      color: #d99a00;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    blockquote {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    cite {
+      display: block;
+      margin-top: 14px;
+      font-style: normal;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .contact {
+      background: linear-gradient(135deg, var(--ink), #215566);
+      color: #fff;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .contact h2 { color: #fff; }
+    .contact p,
+    .contact li,
+    .hours {
+      color: #d4e3e6;
+    }
+    .contact li::before { background: var(--gold); }
+    .contact-card {
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    form {
+      display: grid;
+      gap: 14px;
+    }
+    label {
+      display: grid;
+      gap: 6px;
+      font-weight: 850;
+      color: var(--ink);
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 46px;
+      padding: 11px 12px;
+      font: inherit;
+      color: var(--ink);
+      background: #fff;
+    }
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .form-note {
+      color: var(--muted);
+      font-size: .9rem;
+      margin: 0;
+    }
+
+    footer {
+      background: #102831;
+      color: #cbdde0;
+      padding: 24px 0;
+    }
+    .footer-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-inner,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-inner { padding-top: 38px; }
+      .hero-art { min-height: auto; }
+      .status-card { left: 16px; }
+      .choose-grid,
+      .service-grid,
+      .process {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .stats,
+      .reviews {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .section-heading {
+        display: block;
+      }
+      .section-heading p { margin-top: 12px; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+      .nav { min-height: 66px; }
+      .brand { font-size: 1.05rem; }
+      .btn { width: 100%; }
+      .hero-actions { display: grid; }
+      .hero-points,
+      .choose-grid,
+      .service-grid,
+      .process,
+      .stats,
+      .reviews,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      section { padding: 54px 0; }
+      .hero-inner {
+        min-height: auto;
+        padding-bottom: 26px;
+      }
+      .hero-art img { width: 100%; }
+      .status-card {
+        position: static;
+        width: 100%;
+        margin-top: -18px;
+      }
+      .stat { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>Same-day and emergency appliance repair across DFW</span>
+      <span><a href="tel:+12145182550">(214) 518-2550</a> &nbsp;|&nbsp; <a href="mailto:khelmy77@yahoo.com">khelmy77@yahoo.com</a></span>
+    </div>
+  </div>
+
+  <header>
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="SMS Appliances home">
+        <span class="brand-mark">SMS</span>
+        <span>SMS Appliances</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#brands">Brands</a>
+        <a href="#areas">Service Areas</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn btn-primary" href="tel:+12145182550">Call Now</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">Fast, Reliable Appliance Repair Across DFW</span>
+          <h1 id="hero-title">Appliance repair when you need it most.</h1>
+          <p>SMS Appliances repairs residential and commercial appliances quickly, professionally, and at affordable prices. Our experienced technicians get your refrigerator, washer, dryer, oven, and other essential appliances back up and running.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+12145182550">Call (214) 518-2550</a>
+            <a class="btn btn-ghost" href="#contact">Request Service</a>
+          </div>
+          <div class="hero-points" aria-label="Service highlights">
+            <div class="point">Same-day service available</div>
+            <div class="point">Residential and commercial</div>
+            <div class="point">Honest diagnosis</div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <img src="assets/hero-appliance-repair.svg" alt="">
+          <div class="status-card">
+            <strong>Emergency service may be available</strong>
+            <span>Monday-Saturday, 8:00 AM-8:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Why Choose SMS Appliances?</h2>
+          <p>Clear communication, dependable service, and quality replacement parts for homes and businesses throughout the Metroplex.</p>
+        </div>
+        <div class="grid choose-grid">
+          <div class="card"><div class="icon">01</div><h3>Experienced Technicians</h3><ul><li>10+ years of hands-on repair experience</li><li>Residential and commercial service</li><li>Professional techniques on every job</li></ul></div>
+          <div class="card"><div class="icon">02</div><h3>Fast Response Times</h3><ul><li>Same-day service available</li><li>Emergency repairs may be available</li><li>DFW-wide scheduling support</li></ul></div>
+          <div class="card"><div class="icon">03</div><h3>Honest, Affordable Work</h3><ul><li>Fair pricing</li><li>Honest diagnoses</li><li>Customer satisfaction guaranteed</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="services">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Appliances We Repair</h2>
+          <p>From kitchen and laundry appliances to commercial refrigeration and restaurant equipment.</p>
+        </div>
+        <div class="grid service-grid">
+          <article class="card">
+            <div class="icon">K</div>
+            <h3>Kitchen Appliances</h3>
+            <ul>
+              <li>Refrigerators and freezers</li>
+              <li>Ice makers and wine coolers</li>
+              <li>Dishwashers and garbage disposals</li>
+              <li>Ovens, stoves, cooktops, and ranges</li>
+              <li>Microwaves</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="icon">L</div>
+            <h3>Laundry Appliances</h3>
+            <ul>
+              <li>Washing machines</li>
+              <li>Dryers</li>
+              <li>Washer and dryer combos</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="icon">C</div>
+            <h3>Commercial Appliances</h3>
+            <ul>
+              <li>Commercial refrigerators</li>
+              <li>Commercial freezers</li>
+              <li>Ice machines</li>
+              <li>Restaurant equipment</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <div class="stats" aria-label="Company statistics">
+          <div class="stat"><strong>4.9/5</strong><span>Customer rating</span></div>
+          <div class="stat"><strong>1,500+</strong><span>Appliances repaired</span></div>
+          <div class="stat"><strong>10+</strong><span>Years of experience</span></div>
+          <div class="stat"><strong>Same-day</strong><span>Service available</span></div>
+          <div class="stat"><strong>24/7</strong><span>Emergency requests</span></div>
+          <div class="stat"><strong>98%</strong><span>Satisfaction rate</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Our Repair Process</h2>
+          <p>A straightforward service visit from scheduling through testing.</p>
+        </div>
+        <div class="grid process">
+          <div class="step"><h3>Contact Us</h3><p>Call or email to schedule your service appointment.</p></div>
+          <div class="step"><h3>Diagnosis</h3><p>A technician inspects the appliance and identifies the problem.</p></div>
+          <div class="step"><h3>Repair</h3><p>We repair the appliance using quality parts and professional techniques.</p></div>
+          <div class="step"><h3>Testing</h3><p>Before leaving, we test the appliance to make sure it is operating properly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="brands">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Brands We Service</h2>
+          <p>We repair major appliance brands and many more.</p>
+        </div>
+        <div class="brands" aria-label="Brands serviced">
+          <span class="pill">Samsung</span><span class="pill">LG</span><span class="pill">Whirlpool</span><span class="pill">GE</span><span class="pill">Frigidaire</span><span class="pill">Maytag</span><span class="pill">KitchenAid</span><span class="pill">Bosch</span><span class="pill">Amana</span><span class="pill">Kenmore</span><span class="pill">Electrolux</span><span class="pill">JennAir</span><span class="pill">Viking</span><span class="pill">Sub-Zero</span><span class="pill">Thermador</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="areas">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Service Areas</h2>
+          <p>SMS Appliances proudly serves customers throughout the Dallas-Fort Worth Metroplex and surrounding DFW communities.</p>
+        </div>
+        <div class="areas" aria-label="Service areas">
+          <span class="pill">Dallas</span><span class="pill">Fort Worth</span><span class="pill">Plano</span><span class="pill">Frisco</span><span class="pill">McKinney</span><span class="pill">Allen</span><span class="pill">Wylie</span><span class="pill">Murphy</span><span class="pill">Sachse</span><span class="pill">Garland</span><span class="pill">Richardson</span><span class="pill">Carrollton</span><span class="pill">Lewisville</span><span class="pill">The Colony</span><span class="pill">Prosper</span><span class="pill">Celina</span><span class="pill">Rockwall</span><span class="pill">Rowlett</span><span class="pill">Mesquite</span><span class="pill">Irving</span><span class="pill">Arlington</span><span class="pill">Grand Prairie</span><span class="pill">Denton</span><span class="pill">Coppell</span><span class="pill">Farmers Branch</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Customer Reviews</h2>
+          <p>Customers choose SMS Appliances for responsive scheduling, clear explanations, and repairs that last.</p>
+        </div>
+        <div class="grid reviews">
+          <article class="review"><div class="stars">★★★★★</div><blockquote>SMS Appliances fixed my refrigerator the same day. The technician was professional and explained everything clearly.</blockquote><cite>Michael R.</cite></article>
+          <article class="review"><div class="stars">★★★★★</div><blockquote>My washing machine stopped working unexpectedly, and SMS Appliances had it running again within a few hours. Great service!</blockquote><cite>Sarah T.</cite></article>
+          <article class="review"><div class="stars">★★★★★</div><blockquote>Very fair pricing and excellent customer service. I will definitely use them again for future appliance repairs.</blockquote><cite>David L.</cite></article>
+          <article class="review"><div class="stars">★★★★★</div><blockquote>They repaired our dishwasher quickly and saved us from having to buy a new one. Highly recommend!</blockquote><cite>Jennifer M.</cite></article>
+          <article class="review"><div class="stars">★★★★★</div><blockquote>The technician arrived on time, diagnosed the issue immediately, and completed the repair efficiently.</blockquote><cite>Robert K.</cite></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-inner contact-grid">
+        <div>
+          <h2>Need appliance repair today?</h2>
+          <p>Call SMS Appliances for fast, professional, and dependable appliance repair anywhere in the DFW Metroplex.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+12145182550">Call (214) 518-2550</a>
+            <a class="btn btn-secondary" href="mailto:khelmy77@yahoo.com">Email SMS Appliances</a>
+          </div>
+          <div class="hours">
+            <p><strong>Business Hours</strong></p>
+            <p>Monday-Saturday: 8:00 AM-8:00 PM<br>Sunday: Closed</p>
+            <p>Emergency service may be available outside normal business hours.</p>
+          </div>
+          <ul>
+            <li>Phone: (214) 518-2550</li>
+            <li>Email: khelmy77@yahoo.com</li>
+            <li>Residential and commercial appliance service</li>
+          </ul>
+        </div>
+        <div class="contact-card">
+          <h3>Request Service</h3>
+          <form action="mailto:khelmy77@yahoo.com" method="post" enctype="text/plain">
+            <div class="two-col">
+              <label>Name
+                <input name="Name" autocomplete="name" required>
+              </label>
+              <label>Phone Number
+                <input name="Phone" type="tel" autocomplete="tel" required>
+              </label>
+            </div>
+            <label>Email Address
+              <input name="Email" type="email" autocomplete="email">
+            </label>
+            <label>Appliance Type
+              <select name="Appliance Type" required>
+                <option value="">Select an appliance</option>
+                <option>Refrigerator / Freezer</option>
+                <option>Washer / Dryer</option>
+                <option>Dishwasher</option>
+                <option>Oven / Stove / Range</option>
+                <option>Microwave</option>
+                <option>Commercial Appliance</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>Description of the Problem
+              <textarea name="Problem Description" placeholder="Tell us what is happening with the appliance." required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send Service Request</button>
+            <p class="form-note">Submitting opens your email app so you can send the request directly to SMS Appliances.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 SMS Appliances. Fast, reliable appliance repair across DFW.</span>
+      <span><a href="tel:+12145182550">(214) 518-2550</a></span>
+    </div>
+  </footer>
+</body>
+</html>
