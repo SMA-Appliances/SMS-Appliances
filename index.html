@@ -201,27 +201,6 @@
       display: block;
       filter: drop-shadow(0 24px 36px rgba(39,37,34,.18));
     }
-    .status-card {
-      position: absolute;
-      left: 0;
-      bottom: 36px;
-      width: min(285px, 72%);
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-    .status-card strong {
-      display: block;
-      font-size: 1.1rem;
-    }
-    .status-card span {
-      color: var(--muted);
-      font-weight: 700;
-      font-size: .92rem;
-    }
-
     section { padding: 72px 0; }
     .section-heading {
       display: flex;
@@ -529,7 +508,6 @@
       }
       .hero-inner { padding-top: 38px; }
       .hero-art { min-height: auto; }
-      .status-card { left: 16px; }
       .choose-grid,
       .service-grid,
       .process {
@@ -573,11 +551,6 @@
         padding-bottom: 26px;
       }
       .hero-art img { width: 100%; }
-      .status-card {
-        position: static;
-        width: 100%;
-        margin-top: -18px;
-      }
       .stat { min-height: auto; }
     }
   </style>
@@ -625,10 +598,6 @@
         </div>
         <div class="hero-art" aria-hidden="true">
           <img src="sma-appliances-logo.png" alt="">
-          <div class="status-card">
-            <strong>Emergency service may be available</strong>
-            <span>Monday-Saturday, 8:00 AM-8:00 PM</span>
-          </div>
         </div>
       </div>
     </section>
